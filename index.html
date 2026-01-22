@@ -6,305 +6,271 @@
 <title>Agencia de Gas RaFla</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family:Arial, Helvetica, sans-serif; background:#eaf3ff; color:#0a2540; }
 
-body{
-  font-family:Arial, Helvetica, sans-serif;
-  background:#eaf3ff;
-  color:#0a2540;
-}
-
-/* ================= HEADER ================= */
+/* ===== HEADER ===== */
 header{
-  background:white;
-  padding:12px 20px;
+  background:linear-gradient(#ffffff,#f2f6ff);
+  padding:14px 25px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
-  box-shadow:0 2px 8px rgba(0,0,0,.1);
+  box-shadow:0 4px 12px rgba(0,0,0,.12);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-.logo{
-  font-size:clamp(26px,4vw,34px);
-  font-weight:900;
-}
-.logo .ra{color:#1e7cff}
-.logo .fla{color:#e53935}
+.nav-left{ display:flex; align-items:center; gap:10px; }
+.logo-text{ font-size:28px; font-weight:900; }
+.logo-text .ra{color:#1e7cff}
+.logo-text .fla{color:#e53935}
 
-.header-btn{
-  background:#25d366;
-  color:white;
-  padding:10px 22px;
-  border-radius:25px;
-  text-decoration:none;
-  font-weight:700;
+nav{ display:flex; gap:28px; }
+nav a{ text-decoration:none; font-weight:700; color:#0a2540; font-size:16px; }
+nav a:hover{ color:#1e7cff; }
+
+.whatsapp-btn{ background:#25d366; color:white; padding:12px 26px; border-radius:30px; text-decoration:none; font-weight:800; }
+
+/* ICONO HAMBURGUESA */
+.menu-toggle{ display:none; font-size:28px; cursor:pointer; color:#0a2540; }
+
+/* ===== RESPONSIVE HEADER/MENÚ ===== */
+@media(max-width:900px){
+  .menu-toggle{ display:block; }
+
+  nav{
+    position:fixed;
+    top:0;
+    right:-100%;
+    height:100%;
+    width:250px;
+    background:#0a2540;
+    flex-direction:column;
+    padding-top:60px;
+    gap:25px;
+    transition:right .3s ease;
+    z-index:1000;
+  }
+
+  nav a{
+    color:white;
+    font-size:18px;
+    font-weight:700;
+    padding-left:20px;
+  }
+
+  nav.active{ right:0; }
+
+  .whatsapp-btn{ display:none; }
+
+  /* BOTÓN DE CERRAR "X" */
+  .close-menu{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+  }
 }
 
-/* ================= HERO ================= */
-.hero{
-  display:flex;
-  flex-wrap:wrap;
-  max-width:1200px;
-  margin:50px auto;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.15);
-  background:white;
-}
-
-.hero-image{
-  flex:1;
+/* ===== BANNER ===== */
+.banner{
   background:url('5.jpeg') center/cover no-repeat;
-  min-height:300px;
-}
-
-.hero-left{
-  flex:1;
-  background:rgba(7,60,130,0.88);
-  color:white;
-  padding:40px 30px;
+  min-height:520px;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
+  align-items:center;
+  padding:40px 60px;
 }
 
-.hero-left h1{
-  font-size:clamp(24px,5vw,36px);
-  margin-bottom:20px;
-}
-
-.hero-left p{
-  font-size:clamp(16px,3.5vw,18px);
-  margin-bottom:20px;
-}
-
-.cta-btn{
-  display:inline-block;
-  background:#25d366;
+.banner-content{
+  background:rgba(6,40,90,0.85);
   color:white;
-  padding:12px 25px;
-  border-radius:25px;
-  font-size:18px;
-  font-weight:700;
-  text-decoration:none;
-  margin-bottom:15px;
+  padding:45px;
+  max-width:520px;
+  border-radius:18px;
 }
 
-.phones{
-  font-weight:700;
-}
+.banner-content h1{ font-size:42px; line-height:1.1; margin-bottom:20px; }
+.banner-content p{ font-size:18px; margin-bottom:25px; }
+.banner-btn{ background:#25d366; color:white; border-radius:30px; font-weight:800; text-decoration:none; display:inline-block; margin-bottom:15px; }
+.banner-phones{ font-weight:700; }
 
-/* ================= STEPS ================= */
-.steps{
-  background:url('00.jpeg') center/cover no-repeat;
-  padding:70px 20px;
-  text-align:center;
-}
-
-.steps h2{
-  font-size:clamp(28px,5vw,40px);
-  margin-bottom:40px;
-}
-
-.steps-grid{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-
-.step{
-  background:white;
-  border-radius:22px;
-  padding:30px 20px;
-  box-shadow:0 10px 25px rgba(0,0,0,.12);
-}
-
-.step img{
-  width:100%;
-  max-width:110px;
-  margin-bottom:15px;
-}
-/* ================= PRODUCTS STYLE ================= */
-.products{
-  padding:70px 20px;
-  max-width:1200px;
-  margin:auto;
-}
-
-.products-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-  justify-items:center;
-}
-
-.product{
-  background:white;
-  border-radius:22px;
-  padding:50px;
-  box-shadow:0 10px 25px rgba(0,0,0,.12);
-  text-align:center;
-  transition:transform .3s, box-shadow .3s;
-}
-
-.product img{
-  width:100%;
-  max-width:150px;
-  margin-bottom:15px;
-}
-
-.product h3{
-  font-size:20px;
-  margin-bottom:10px;
-  font-weight:700;
-}
-
-.product .price{
-  font-size:18px;
-  font-weight:700;
-  margin-bottom:15px;
-}
-
-.product:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 30px rgba(0,0,0,.2);
-}
-
+/* BANNER RESPONSIVE */
 @media(max-width:768px){
-  .products-grid{
-    grid-template-columns:1fr 1fr;
+  .banner{ position:relative; min-height:400px; padding:0; }
+  .banner-content{
+    position:absolute;
+    left:12px; bottom:18px;
+    max-width:210px; padding:12px 14px;
+    background:rgba(6,40,90,.45);
+    color:white;
+    text-shadow:0 2px 6px rgba(0,0,0,.65),0 0 14px rgba(6,40,90,.45);
   }
-}
-@media(max-width:480px){
-  .products-grid{
-    grid-template-columns:1fr;
-  }
-}
-.step p{
-  font-size:18px;
-  font-weight:700;
+  .banner-content h1{ font-size:17px; line-height:1.1; margin-bottom:6px; }
+  .banner-content p{ font-size:12px; margin-bottom:8px; }
+  .banner-btn{ font-size:12px; padding:6px 12px; border-radius:14px; font-weight:700; white-space:nowrap; margin-bottom:6px; }
+  .banner-phones{ font-size:11px; }
 }
 
-/* ================= CTA FINAL ================= */
-.cta{
-  background:linear-gradient(#1db954,#159a46);
-  padding:70px 20px;
-  text-align:center;
-  color:white;
-}
+/* ===== PRODUCTS ===== */
+.products { padding:80px 20px; max-width:1200px; margin:auto; }
+.products h2 { font-size:36px; margin-bottom:50px; font-weight:900; text-align:center; }
+.products-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:35px; }
+.product { background:white; border-radius:26px; padding:35px 25px 40px; box-shadow:0 18px 35px rgba(0,0,0,.15); text-align:center; transition: transform .35s, box-shadow .35s; position:relative; overflow:hidden; }
+.product:hover { transform:translateY(-10px); box-shadow:0 28px 45px rgba(0,0,0,.22); }
+.product img { width:150px; margin-bottom:20px; transition: transform .3s; }
+.product:hover img { transform:scale(1.08); }
+.product h3 { font-size:22px; font-weight:800; margin-bottom:8px; }
+.product .price { font-size:24px; font-weight:900; color:#1e7cff; margin-bottom:20px; }
+.product-actions { display:flex; gap:12px; justify-content:center; margin-top:15px; flex-wrap:wrap; }
+.btn-whatsapp, .btn-call{ display:inline-block; padding:12px 22px; border-radius:25px; text-decoration:none; font-weight:700; font-size:16px; transition: all .2s ease; cursor:pointer; box-shadow:0 6px 15px rgba(0,0,0,0.12); }
+.btn-whatsapp { background:#25d366; color:white; }
+.btn-call { background:#0a3c86; color:white; }
+.btn-whatsapp:hover, .btn-call:hover { opacity:.95; transform:scale(1.05); box-shadow:0 8px 18px rgba(0,0,0,0.18); }
 
-.cta h2{
-  font-size:clamp(24px,5vw,36px);
-  margin-bottom:20px;
-}
-
-.cta a{
-  display:inline-block;
-  background:#25d366;
-  color:white;
-  padding:18px 45px;
-  border-radius:40px;
-  font-size:clamp(18px,4vw,22px);
-  font-weight:800;
-  text-decoration:none;
-}
-
-.url{
-  margin-top:18px;
-  font-weight:700;
-}
-
-/* ================= FOOTER ================= */
-footer{
-  background:#0a3c86;
-  color:white;
-  padding:25px 15px;
-  text-align:center;
-  font-size:15px;
-}
-
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE PRODUCTS */
 @media(max-width:768px){
-  .hero{
-    flex-direction:column-reverse;
-    margin:20px;
-  }
-
-  .hero-left{
-    padding:30px 20px;
-    text-align:center;
-  }
-
-  .hero-image{
-    min-height:250px;
-  }
+  .product{ padding:25px 20px 30px; }
+  .product img{ width:130px; }
+  .product h3{ font-size:20px; }
+  .product .price{ font-size:22px; }
+  .btn-whatsapp, .btn-call{ padding:10px 18px; font-size:14px; }
 }
+
+/* ===== STEPS ===== */
+.steps{ background:url('00.jpeg') center/cover no-repeat; padding:70px 20px; text-align:center; }
+.steps h2{ font-size:clamp(28px,5vw,40px); margin-bottom:40px; }
+.steps-grid{ max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; }
+.step{ background:rgb(83 123 182 / 45%); border-radius:22px; padding:30px 20px; box-shadow:0 10px 25px rgba(0,0,0,.12); }
+.step img{ max-width:110px; margin-bottom:15px; }
+.step p{ font-size:18px; font-weight:700; }
+
+/* BOTÓN FLOTANTE MAPA */
+.map-float{ position:fixed; bottom:25px; right:25px; width:60px; height:60px; background:#1e7cff; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; cursor:pointer; box-shadow:0 6px 15px rgba(0,0,0,0.25); z-index:10000; transition:transform .2s, opacity .2s; }
+.map-float:hover{ transform:scale(1.15); opacity:.9; }
+.map-modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:10001; justify-content:center; align-items:center; }
+.map-content{ background:white; max-width:800px; border-radius:15px; overflow:hidden; position:relative; }
+.close-map{ position:absolute; top:12px; right:18px; font-size:28px; font-weight:bold; cursor:pointer; color:#333; z-index:10002; }
+
+/* CTA FINAL */
+.cta{ background:linear-gradient(#1db954,#159a46); padding:70px 20px; text-align:center; color:white; }
+.cta h2{ font-size:clamp(24px,5vw,36px); margin-bottom:20px; }
+.cta a{ background:#25d366; color:white; padding:18px 45px; border-radius:40px; text-decoration:none; font-size:20px; font-weight:800; }
+.url{ margin-top:18px; font-weight:700; }
+
+/* FOOTER */
+footer{ background:#0a3c86; color:white; padding:25px 15px; text-align:center; }
+
 </style>
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="logo">
-    <span class="ra">Ra</span><span class="fla">Fla</span>
+  <div class="nav-left">
+    <div class="logo-text"><span class="ra">Ra</span><span class="fla">Fla</span></div>
   </div>
-  <a class="header-btn" href="https://wa.me/50586951757">Pedir por WhatsApp</a>
+
+  <nav class="nav-menu" id="navMenu">
+    <span class="close-menu" id="closeMenu">&times;</span>
+    <a href="#">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#">Quiénes Somos</a>
+    <a href="#">Cobertura</a>
+  </nav>
+
+  <a class="whatsapp-btn" href="https://wa.me/50586951757">Pedir por WhatsApp</a>
+
+  <div class="menu-toggle" id="menuToggle">&#9776;</div>
 </header>
 
-<section class="hero">
-  <div class="hero-left">
-    <h1>¡Pide tu gas y tu agua a domicilio!</h1>
+<!-- BANNER -->
+<section class="banner">
+  <div class="banner-content">
+    <h1>¡Pide tu gas<br>y tu agua a domicilio!</h1>
     <p>Entrega rápida y confiable hasta la puerta de tu hogar</p>
-    <a class="cta-btn" href="https://wa.me/50586951757">Pedir por WhatsApp</a>
-    <div class="phones">📞 8695-1757 · 8600-9066</div>
+    <a class="banner-btn" href="https://wa.me/50586951757">Pedir por WhatsApp</a>
+    <div class="banner-phones">📞 8695-1757 · 8600-9066</div>
   </div>
-  <div class="hero-image"></div>
 </section>
-<section class="products">
-  <h2 style="text-align:center; font-size:clamp(28px,5vw,40px); margin:40px 0;">Nuestros Productos</h2>
+
+<!-- PRODUCTOS -->
+<section class="products" id="productos">
+  <h2>Nuestros Productos</h2>
   <div class="products-grid">
     <div class="product">
       <img src="8.png" alt="Cilindro de Gas">
       <h3>Cilindro de Gas</h3>
-      <p class="price">C$350</p>
-      <a class="cta-btn" href="https://wa.me/50586951757?text=Hola,%20quiero%20pedir%20un%20cilindro%20de%20gas">Pedir ahora</a>
+      <p class="price">C$480</p>
+      <div class="product-actions">
+        <a class="btn-whatsapp" href="https://wa.me/50586951757" target="_blank">📲 WhatsApp</a>
+        <a class="btn-call" href="tel:+50586951757">📞 Llamar</a>
+      </div>
     </div>
     <div class="product">
       <img src="7.png" alt="Galón de Agua">
       <h3>Galón de Agua</h3>
       <p class="price">C$120</p>
-      <a class="cta-btn" href="https://wa.me/50586951757?text=Hola,%20quiero%20pedir%20un%20galón%20de%20agua">Pedir ahora</a>
+      <div class="product-actions">
+        <a class="btn-whatsapp" href="https://wa.me/50586951757" target="_blank">📲 WhatsApp</a>
+        <a class="btn-call" href="tel:+50586009066">📞 Llamar</a>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- CÓMO FUNCIONA -->
 <section class="steps">
   <h2>Cómo Funciona</h2>
   <div class="steps-grid">
-    <div class="step"><img src="step1.png"><p>1 Escríbenos</p></div>
-    <div class="step"><img src="step2.png"><p>2 Preparamos tu pedido</p></div>
-    <div class="step"><img src="step3.png"><p>3 Moto en camino</p></div>
-    <div class="step"><img src="step4.png"><p>4 Entrega segura</p></div>
+    <div class="step"><img src="11.png"><p>1 Escríbenos</p></div>
+    <div class="step"><img src="12.png"><p>2 Preparamos tu pedido</p></div>
+    <div class="step"><img src="13.png"><p>3 Moto en camino</p></div>
+    <div class="step"><img src="18.png"><p>4 Entrega segura</p></div>
   </div>
 </section>
 
-<section class="cta">
-  <h2>Pide tu gas y tu agua a domicilio</h2>
-  <a href="https://wa.me/50586951757">Pedir gas ahora</a>
-  <div class="url">agenciarafla.netlify.app</div>
-</section>
+<!-- BOTÓN MAPA -->
+<div class="map-float" id="mapBtn">📍</div>
+
+<div class="map-modal" id="mapModal">
+  <div class="map-content">
+    <span class="close-map" id="closeMap">&times;</span>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3879.8906777879065!2d-86.59047202491462!3d13.480833486883425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDI4JzUxLjAiTiA4NsKwMzUnMTYuNCJX!5e0!3m2!1ses!2sni!4v1769048899953!5m2!1ses!2sni" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</div>
+
+<!-- CTA -->
 
 <footer>
   <p>Agencia de Gas RaFla © 2026</p>
   <p>📞 8695-1757 · 8600-9066</p>
 </footer>
 
+<script>
+  // MENU HAMBURGUESA
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+  const closeMenu = document.getElementById('closeMenu');
+
+  menuToggle.addEventListener('click', () => navMenu.classList.add('active'));
+  closeMenu.addEventListener('click', () => navMenu.classList.remove('active'));
+
+  // BOTÓN MAPA
+  const mapBtn = document.getElementById('mapBtn');
+  const mapModal = document.getElementById('mapModal');
+  const closeMap = document.getElementById('closeMap');
+
+  mapBtn.addEventListener('click', () => mapModal.style.display='flex');
+  closeMap.addEventListener('click', () => mapModal.style.display='none');
+
+  window.addEventListener('click', e => {
+    if(e.target === mapModal) mapModal.style.display='none';
+  });
+</script>
 </body>
 </html>
