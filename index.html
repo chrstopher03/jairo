@@ -76,6 +76,193 @@ nav a:hover{ color:#1e7cff; }
     font-weight:bold;
   }
 }
+/* ===== BOTÓN FLOTANTE PERSONAL ===== */
+.staff-float{
+  position:fixed;
+  bottom:100px;          /* arriba del botón mapa */
+  right:25px;
+  width:60px;
+  height:60px;
+  background:#0a3c86;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  cursor:pointer;
+  box-shadow:0 6px 15px rgba(0,0,0,0.25);
+  z-index:10000;
+  transition:transform .2s ease, opacity .2s ease;
+}
+
+.staff-float:hover{
+  transform:scale(1.15);
+  opacity:.9;
+}
+
+/* ===== MODAL PERSONAL ===== */
+.staff-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+  z-index:10001;
+  justify-content:center;
+  align-items:center;
+}
+
+/* CONTENIDO DEL MODAL */
+.staff-content{
+  background:linear-gradient(#ffffff,#f4f7ff);
+  padding:35px 28px;
+  border-radius:22px;
+  text-align:center;
+  max-width:340px;
+  width:90%;
+  position:relative;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  animation:staffPop .25s ease;
+}
+/* BOTÓN FLOTANTE PERSONAL */
+.staff-float{
+  position:fixed;
+  bottom:100px; /* un poco arriba del botón de mapa */
+  right:25px;
+  width:60px;
+  height:60px;
+  background:#ff9800;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  cursor:pointer;
+  box-shadow:0 6px 15px rgba(0,0,0,0.25);
+  z-index:10005; /* encima del mapa */
+  transition:transform .2s, opacity .2s;
+}
+.staff-float:hover{
+  transform:scale(1.15);
+  opacity:.9;
+}
+
+/* MODAL PERSONAL */
+.staff-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  z-index:10006; /* encima del botón flotante */
+  justify-content:center;
+  align-items:center;
+}
+
+.staff-content{
+  background:white;
+  max-width:400px;
+  width:90%;
+  border-radius:15px;
+  padding:25px 20px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  animation: modalShow 0.3s ease-out;
+}
+
+@keyframes modalShow{
+  0%{ transform:scale(0.7); opacity:0; }
+  100%{ transform:scale(1); opacity:1; }
+}
+
+/* BOTÓN CERRAR */
+.close-staff{
+  position:absolute;
+  top:12px;
+  right:18px;
+  font-size:28px;
+  font-weight:bold;
+  cursor:pointer;
+  color:#333;
+}
+
+/* CONTENIDO PERSONAL */
+.staff-item{
+  margin:12px 0;
+  font-size:18px;
+  font-weight:700;
+  animation: bounce 2s infinite alternate;
+}
+
+/* TOTAL PERSONAL */
+.staff-total{
+  margin-top:18px;
+  font-weight:800;
+  font-size:16px;
+  color:#ff5722;
+}
+
+/* ANIMACIÓN BOUNCE */
+@keyframes bounce{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-6px); }
+  100%{ transform:translateY(0); }
+}
+
+/* ANIMACIÓN */
+@keyframes staffPop{
+  from{
+    transform:scale(.85);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+/* TÍTULO */
+.staff-content h3{
+  margin-bottom:22px;
+  font-size:24px;
+  font-weight:900;
+  color:#0a2540;
+}
+
+/* TARJETAS DE PERSONAL */
+.staff-item{
+  background:#eaf1ff;
+  border-radius:16px;
+  padding:14px;
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  color:#0a2540;
+}
+
+/* TOTAL */
+.staff-total{
+  margin-top:18px;
+  font-size:18px;
+  font-weight:900;
+  color:#1e7cff;
+}
+
+/* BOTÓN CERRAR */
+.close-staff{
+  position:absolute;
+  top:12px;
+  right:16px;
+  font-size:26px;
+  cursor:pointer;
+  font-weight:bold;
+  color:#0a2540;
+}
 
 /* ===== BANNER ===== */
 .banner{
@@ -99,6 +286,33 @@ nav a:hover{ color:#1e7cff; }
 .banner-btn{ background:#25d366; color:white; border-radius:30px; font-weight:800; text-decoration:none; display:inline-block; margin-bottom:15px; }
 .banner-phones{ font-weight:700; }
 
+
+.social-float{
+  position:fixed; bottom:175px; right:25px; /* encima del staff */
+  width:60px; height:60px; background:#1e7cff; color:white;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:28px; cursor:pointer; box-shadow:0 6px 15px rgba(0,0,0,0.25);
+  z-index:10005; transition:transform .2s, opacity .2s;
+}
+.social-float:hover{ transform:scale(1.15); opacity:.9; }
+
+.social-modal{
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6);
+  z-index:10006; justify-content:center; align-items:center;
+}
+.social-content{
+  background:white; width:300px; border-radius:50%; /* círculo */
+  padding:40px 20px; text-align:center; position:relative;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.close-social{
+  position:absolute; top:12px; right:18px; font-size:28px;
+  font-weight:bold; cursor:pointer; color:#333;
+}
+.social-item{ margin:10px 0; font-size:16px; }
+.social-item a{ text-decoration:none; color:#0a2540; font-weight:700; }
+.social-item a:hover{ color:#1e7cff; }
+
 /* NUEVO: HORARIO */
 .banner-hours{
   margin-top:8px;
@@ -106,6 +320,60 @@ nav a:hover{ color:#1e7cff; }
   font-size:14px;
   color:#ffeb3b; /* amarillo para resaltar */
 }
+.staff-float{
+  position:fixed; bottom:100px; right:25px;
+  width:60px; height:60px; background:#ff9800; color:white;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:28px; cursor:pointer; box-shadow:0 6px 15px rgba(0,0,0,0.25);
+  z-index:10005; transition:transform .2s, opacity .2s;
+}
+.staff-float:hover{ transform:scale(1.15); opacity:.9; }
+
+.staff-modal{
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6);
+  z-index:10006; justify-content:center; align-items:center;
+}
+.staff-content{
+  background:white; max-width:600px; width:95%; border-radius:15px;
+  padding:25px 20px; text-align:center; position:relative;
+}
+.close-staff{
+  position:absolute; top:12px; right:18px; font-size:28px;
+  font-weight:bold; cursor:pointer; color:#333;
+}
+.staff-item{ margin:8px 0; font-size:16px; }
+.staff-total{ margin-top:10px; font-weight:bold; color:#ff5722; }
+
+.map-sim{
+  position:relative; width:100%; height:250px; margin-top:15px;
+  border-radius:12px; overflow:hidden; background:#87ceeb; /* cielo */
+}
+
+/* CARRETERA */
+.road{
+  position:absolute; width:100%; height:100%;
+  background: linear-gradient(to bottom, #4caf50 0%, #4caf50 15%, #555 15%, #555 85%, #4caf50 85%, #4caf50 100%);
+}
+.road::after{
+  content:"";
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background:repeating-linear-gradient(to right, white 0 2px, transparent 0 20px);
+  top:50%; height:4px; transform:translateY(-50%);
+}
+
+.start, .end{
+  position:absolute; font-size:20px; font-weight:bold;
+}
+.start{ top:75%; left:5%; }
+.end{ top:15%; right:5%; }
+
+#moto, #cilindro, #galon{
+  position:absolute; top:75%; left:5%;
+  transform:translate(-50%,-50%);
+  font-size:24px;
+}
+#cilindro{ top:77%; font-size:20px; }
+#galon{ top:73%; font-size:20px; }
 
 /* BANNER RESPONSIVE */
 @media(max-width:768px){
@@ -200,11 +468,13 @@ footer{ background:#0a3c86; color:white; padding:25px 15px; text-align:center; }
 <!-- BANNER -->
 <section class="banner">
   <div class="banner-content">
+
     <h1>¡Pide tu gas<br>y tu agua a domicilio!</h1>
     <p>Entrega rápida y confiable hasta la puerta de tu hogar</p>
     <a class="banner-btn" href="https://wa.me/50586951757">Pedir por WhatsApp</a>
     <div class="banner-phones">📞 8695-1757 · 8600-9066</div>
-<div id="bannerHours" style="font-weight:700; margin-top:8px;"></div>
+        <div id="bannerHours" style="margin-top:8px;font-weight:700;"></div>
+
   </div>
 </section>
 
@@ -242,6 +512,46 @@ footer{ background:#0a3c86; color:white; padding:25px 15px; text-align:center; }
   </div>
 </section>
 
+
+<!-- BOTÓN REDES -->
+<div class="social-float" id="socialBtn">🔗</div>
+
+<div class="social-modal" id="socialModal">
+  <div class="social-content">
+    <span class="close-social" id="closeSocial">&times;</span>
+    <h3>Nuestras Redes</h3>
+    <div class="social-item"><a href="https://www.facebook.com/share/1C1wpJ7PYf/" target="_blank">📘 Facebook</a></div>
+    <div class="social-item"><a href="https://wa.me/50586951757" target="_blank">📲 WhatsApp</a></div>
+  </div>
+</div>
+
+
+<div class="staff-float" id="staffBtn">👥</div>
+
+<div class="staff-modal" id="staffModal">
+  <div class="staff-content">
+    <span class="close-staff" id="closeStaff">&times;</span>
+
+    <h3>Nuestro Personal</h3>
+    <div class="staff-item">👨‍💼 1 Jefe / Administrador</div>
+    <div class="staff-item">🛵 2 Repartidores</div>
+    <p class="staff-total">💪 Equipo activo: 3 personas</p>
+
+    <h3 style="margin-top:20px;">Repartidores en acción</h3>
+
+    <div class="map-sim">
+      <div class="road">
+        <div class="start">🏠 RaFla</div>
+        <div class="end">🏠 Pedido</div>
+        <div id="moto">🛵</div>
+        <div id="cilindro">🛢️</div>
+        <div id="galon">💧</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- CÓMO FUNCIONA -->
 <section class="steps">
   <h2>Cómo Funciona</h2>
@@ -271,6 +581,11 @@ footer{ background:#0a3c86; color:white; padding:25px 15px; text-align:center; }
 </footer>
 
 <script>
+
+
+
+
+
   // MENU HAMBURGUESA
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
@@ -279,6 +594,8 @@ footer{ background:#0a3c86; color:white; padding:25px 15px; text-align:center; }
   menuToggle.addEventListener('click', () => navMenu.classList.add('active'));
   closeMenu.addEventListener('click', () => navMenu.classList.remove('active'));
 
+
+  
   // BOTÓN MAPA
   const mapBtn = document.getElementById('mapBtn');
   const mapModal = document.getElementById('mapModal');
@@ -291,31 +608,78 @@ footer{ background:#0a3c86; color:white; padding:25px 15px; text-align:center; }
     if(e.target === mapModal) mapModal.style.display='none';
   });
 
-  // HORARIO DE ATENCIÓN
-  <!-- Coloca este div dentro de .banner-content, debajo de los teléfonos -->
-<div id="bannerHours" style="font-weight:700; margin-top:8px;"></div>
+document.addEventListener("DOMContentLoaded", function () {
 
-  // HORARIO DE ATENCIÓN: 7 AM - 11 PM
+  const bannerHours = document.getElementById("bannerHours");
+  if (!bannerHours) return;
+
   function actualizarHorario() {
-    const bannerHours = document.getElementById('bannerHours');
-    const now = new Date();
-    const horas = now.getHours();
-    const minutos = now.getMinutes().toString().padStart(2,'0');
+    const ahora = new Date();
+    const horas = ahora.getHours();
+    const minutos = ahora.getMinutes();
 
-    if (horas < 7) {
-      bannerHours.textContent = `❌ Cerrado. Horario: 7:00 AM - 11:00 PM`;
-      bannerHours.style.color = 'red';
-    } else if (horas >= 7 && horas < 23) {
-      bannerHours.textContent = `✅ Abierto: ${horas}:${minutos} | Horario: 7:00 AM - 11:00 PM`;
-      bannerHours.style.color = 'limegreen';
-    } else {
-      bannerHours.textContent = `❌ Cerrado. Horario: 7:00 AM - 11:00 PM`;
-      bannerHours.style.color = 'red';
+    // Convertimos todo a minutos para evitar errores
+    const horaActual = horas * 60 + minutos;
+    const apertura = 7 * 60;        // 7:00 AM
+    const cierre = 20 * 60 + 30;    // 8:30 PM
+
+    if (horaActual < apertura) {
+      bannerHours.textContent = "❌ Cerrado | Horario: 7:00 AM - 8:30 PM";
+      bannerHours.style.color = "red";
+    } 
+    else if (horaActual >= apertura && horaActual < cierre) {
+      bannerHours.textContent = "✅ Abierto | Horario: 7:00 AM - 8:30 PM";
+      bannerHours.style.color = "limegreen";
+    } 
+    else {
+      bannerHours.textContent = "❌ Cerrado | Horario: 7:00 AM - 8:30 PM";
+      bannerHours.style.color = "red";
     }
   }
 
   actualizarHorario();
-  setInterval(actualizarHorario, 60000); // Actualiza cada minuto
+  setInterval(actualizarHorario, 60000);
+
+});const staffBtn = document.getElementById('staffBtn');
+const staffModal = document.getElementById('staffModal');
+const closeStaff = document.getElementById('closeStaff');
+staffBtn.addEventListener('click', ()=> staffModal.style.display='flex');
+closeStaff.addEventListener('click', ()=> staffModal.style.display='none');
+window.addEventListener('click', e => { if(e.target===staffModal) staffModal.style.display='none'; });
+
+const moto = document.getElementById('moto');
+const cilindro = document.getElementById('cilindro');
+const galon = document.getElementById('galon');
+
+let t = 0;
+function animarMoto(){
+  t += 0.005;
+  if(t>1) t=0;
+
+  // Movimiento en curva a lo largo de la carretera
+  const x = 5 + t*90;
+  const y = 75 - t*60 + Math.sin(t*10)*2;
+
+  moto.style.left = x + "%";
+  moto.style.top = y + "%";
+  cilindro.style.left = (x+1) + "%";
+  cilindro.style.top = (y+2) + "%";
+  galon.style.left = (x-1) + "%";
+  galon.style.top = (y-2) + "%";
+
+  requestAnimationFrame(animarMoto);
+}
+animarMoto();
+
+const socialBtn = document.getElementById('socialBtn');
+const socialModal = document.getElementById('socialModal');
+const closeSocial = document.getElementById('closeSocial');
+
+socialBtn.addEventListener('click', ()=> socialModal.style.display='flex');
+closeSocial.addEventListener('click', ()=> socialModal.style.display='none');
+window.addEventListener('click', e => { if(e.target===socialModal) socialModal.style.display='none'; });
+
+
 
 </script>
 </body>
